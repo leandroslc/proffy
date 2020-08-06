@@ -1,11 +1,13 @@
-import React from 'react';
+/** @jsx jsx */
+import { jsx } from 'theme-ui';
+import { ThemeProvider } from './theme';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
+    <ThemeProvider>
       <h1>Hello</h1>
-    </div>
+    </ThemeProvider>
   );
-}
+};
 
 export default App;
