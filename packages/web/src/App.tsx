@@ -1,11 +1,11 @@
-/** @jsx jsx */
-import { jsx } from 'theme-ui';
+import React from 'react';
 import { ThemeProvider } from './theme';
+import Routes from './routes';
 
 const App = () => {
   return (
     <ThemeProvider>
-      <h1>Hello</h1>
+      <Routes />
     </ThemeProvider>
   );
 };
