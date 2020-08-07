@@ -5,9 +5,9 @@ export default (theme: ThemeConfig) => css`
   :root {
     font-size: 60%;
 
-    @media (min-width: ${bq('sm')}) {
+    ${bq.greaterThan('sm')(css`
       font-size: 62.5%;
-    }
+    `)}
   }
 
   * {

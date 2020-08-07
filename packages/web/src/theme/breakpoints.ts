@@ -1,3 +1,5 @@
+import { css, Interpolation, SerializedStyles } from '@emotion/core';
+
 type Size = 'xs' | 'sm' | 'md' | 'lg';
 
 const breakpoints: Record<Size, string> = {
@@ -7,4 +9,14 @@ const breakpoints: Record<Size, string> = {
   lg: '1200px',
 };
 
-export const bq = (size: Size) => breakpoints[size];
+const greaterThan = (size: Size) => (
+  ...args: Interpolation[]
+): SerializedStyles => css`
+  @media (min-width: ${breakpoints[size]}) {
+    ${css(...args)}
+  }
+`;
+
+export const bq = {
+  greaterThan,
+};

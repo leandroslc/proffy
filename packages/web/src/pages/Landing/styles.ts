@@ -1,11 +1,5 @@
-import { css, Interpolation } from '@emotion/core';
+import { css } from '@emotion/core';
 import { ThemeConfig, bq } from '../../theme';
-
-const large = (innerCss: Interpolation) => css`
-  @media (min-width: ${bq('md')}) {
-    ${innerCss}
-  }
-`;
 
 export const page = (theme: ThemeConfig) => css`
   display: flex;
@@ -18,7 +12,7 @@ export const page = (theme: ThemeConfig) => css`
 `;
 
 export const content = css`
-  @media (min-width: ${bq('md')}) {
+  ${bq.greaterThan('md')(css`
     display: grid;
     grid-template-areas:
       'logo hero hero'
@@ -26,14 +20,14 @@ export const content = css`
     grid-template-rows: 350px 1fr;
     grid-template-columns: 2fr 1fr 1fr;
     max-width: 1100px;
-  }
+  `)}
 `;
 
 export const logoContainer = css`
   margin-bottom: 3.2rem;
   text-align: center;
 
-  ${large(css`
+  ${bq.greaterThan('md')(css`
     grid-area: logo;
     align-self: center;
     margin: 0;
@@ -44,7 +38,7 @@ export const logoContainer = css`
 export const logoImg = css`
   height: 10rem;
 
-  ${large(css`
+  ${bq.greaterThan('md')(css`
     height: 100%;
   `)}
 `;
@@ -55,7 +49,7 @@ export const logoText = css`
   font-weight: 500;
   line-height: 4.6rem;
 
-  ${large(css`
+  ${bq.greaterThan('md')(css`
     font-size: 3.6rem;
     text-align: initial;
   `)}
@@ -64,7 +58,7 @@ export const logoText = css`
 export const heroImg = css`
   width: 100%;
 
-  ${large(css`
+  ${bq.greaterThan('md')(css`
     grid-area: hero;
     justify-self: end;
   `)}
@@ -75,7 +69,7 @@ export const buttons = css`
   justify-content: center;
   margin: 3.2rem 0;
 
-  ${large(css`
+  ${bq.greaterThan('md')(css`
     grid-area: buttons;
     justify-content: flex-start;
   `)}
@@ -97,7 +91,7 @@ export const button = (theme: ThemeConfig) => css`
   border-radius: 0.8rem;
   transition: background-color 0.2s;
 
-  ${large(css`
+  ${bq.greaterThan('md')(css`
     font-size: 2.4rem;
   `)}
 `;
@@ -131,7 +125,7 @@ export const totalConnections = css`
   justify-content: center;
   font-size: 1.4rem;
 
-  ${large(css`
+  ${bq.greaterThan('md')(css`
     grid-area: total;
     justify-self: end;
   `)}
