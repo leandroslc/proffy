@@ -21,6 +21,7 @@
     "build": "lerna run build",
     "lint": "eslint \"**/*.{js,ts,tsx}\"",
     "lint:css": "stylelint \"**/*.{scss,css,ts,tsx,js}\"",
+    "migrate": "lerna run migrate:run --stream",
     "start:web": "cd packages/web && yarn run start"
   },
   "devDependencies": {
