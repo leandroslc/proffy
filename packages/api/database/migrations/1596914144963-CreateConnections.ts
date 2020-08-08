@@ -20,13 +20,13 @@ export class CreateConnections1596914144963 implements MigrationInterface {
           isGenerated: true,
         },
         {
-          name: 'created_at',
+          name: 'createdAt',
           type: 'timestamp',
           isNullable: false,
           default: 'now()',
         },
         {
-          name: 'user_id',
+          name: 'userId',
           type: 'integer',
           isNullable: false,
         },
@@ -34,7 +34,7 @@ export class CreateConnections1596914144963 implements MigrationInterface {
     });
 
     foreignKey = new TableForeignKey({
-      columnNames: ['user_id'],
+      columnNames: ['userId'],
       referencedColumnNames: ['id'],
       referencedTableName: 'users',
       onDelete: 'CASCADE',

@@ -20,7 +20,7 @@ export class ClassSchedule1596913270862 implements MigrationInterface {
           isGenerated: true,
         },
         {
-          name: 'week_day',
+          name: 'weekDay',
           type: 'integer',
           isNullable: false,
         },
@@ -35,7 +35,7 @@ export class ClassSchedule1596913270862 implements MigrationInterface {
           isNullable: false,
         },
         {
-          name: 'class_id',
+          name: 'classId',
           type: 'integer',
           isNullable: false,
         },
@@ -43,7 +43,7 @@ export class ClassSchedule1596913270862 implements MigrationInterface {
     });
 
     foreignKey = new TableForeignKey({
-      columnNames: ['class_id'],
+      columnNames: ['classId'],
       referencedColumnNames: ['id'],
       referencedTableName: 'classes',
       onDelete: 'CASCADE',

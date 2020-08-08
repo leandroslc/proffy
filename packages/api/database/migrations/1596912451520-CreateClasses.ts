@@ -30,7 +30,7 @@ export class CreateClasses1596911472017 implements MigrationInterface {
           isNullable: false,
         },
         {
-          name: 'user_id',
+          name: 'userId',
           type: 'integer',
           isNullable: false,
         },
@@ -38,7 +38,7 @@ export class CreateClasses1596911472017 implements MigrationInterface {
     });
 
     foreignKey = new TableForeignKey({
-      columnNames: ['user_id'],
+      columnNames: ['userId'],
       referencedColumnNames: ['id'],
       referencedTableName: 'users',
       onDelete: 'CASCADE',
