@@ -42,5 +42,6 @@ export default (theme: ThemeConfig) => css`
   button,
   text-area {
     font: 500 1.6rem Poppins, sans-serif;
+    color: ${theme.colors.textBase};
   }
 `;
