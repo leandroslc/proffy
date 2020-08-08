@@ -8,11 +8,14 @@
   },
   "license": "MIT",
   "scripts": {
-    "start": "ts-node-dev --respawn --transpile-only --ignore-watch node_modules \"src/server.ts\""
+    "migrate:run": "yarn run typeorm migration:run -c development",
+    "start": "ts-node-dev --respawn --transpile-only --ignore-watch node_modules \"src/server.ts\"",
+    "typeorm": "ts-node ./node_modules/typeorm/cli.js"
   },
   "dependencies": {
     "cors": "^2.8.5",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "typeorm": "^0.2.25"
   },
   "devDependencies": {
     "@types/cors": "^2.8.7",
