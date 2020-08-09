@@ -6,4 +6,8 @@ export default class ClassRepository extends AbstractRepository<Connection> {
   async create(connection: Connection) {
     await this.manager.save(connection);
   }
+
+  async count() {
+    return this.manager.count(Connection);
+  }
 }
