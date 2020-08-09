@@ -29,9 +29,21 @@ export const headerContent = css`
   `)}
 `;
 
-export const headerContentText = (theme: ThemeConfig) => css`
+export const headerContentTitle = (theme: ThemeConfig) => css`
   font: 700 3.6rem Archivo, sans-serif;
   line-height: 4.2rem;
+  color: ${theme.colors.titleInPrimary};
+
+  ${bq.greaterThan('sm')(css`
+    max-width: 350px;
+  `)}
+`;
+
+export const headerContentDescription = (theme: ThemeConfig) => css`
+  max-width: 30rem;
+  margin-top: 2.4rem;
+  font-size: 1.6rem;
+  line-height: 2.6rem;
   color: ${theme.colors.titleInPrimary};
 
   ${bq.greaterThan('sm')(css`

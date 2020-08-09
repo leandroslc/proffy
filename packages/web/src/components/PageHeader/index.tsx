@@ -7,10 +7,11 @@ import * as styles from './styles';
 
 type PageHeaderProps = PropsWithChildren<{
   title: string;
+  description?: string;
 }>;
 
 export const PageHeader = (props: PageHeaderProps) => {
-  const { title, children } = props;
+  const { title, description, children } = props;
 
   return (
     <header css={styles.header}>
@@ -22,7 +23,10 @@ export const PageHeader = (props: PageHeaderProps) => {
       </div>
 
       <div css={styles.headerContent}>
-        <strong css={styles.headerContentText}>{title}</strong>
+        <strong css={styles.headerContentTitle}>{title}</strong>
+        {description && (
+          <p css={styles.headerContentDescription}>{description}</p>
+        )}
         {children}
       </div>
     </header>
