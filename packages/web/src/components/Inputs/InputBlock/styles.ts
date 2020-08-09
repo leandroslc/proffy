@@ -26,11 +26,9 @@ export const container = (
 `;
 
 export const inline = css`
-  & + & {
-    ${bq.greaterThan('sm')(css`
-      margin-top: 0;
-    `)}
-  }
+  ${bq.greaterThan('sm')(css`
+    margin-top: 0;
+  `)}
 `;
 
 export const label = css`
