@@ -1,6 +1,13 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui';
-import { PageHeader, Container, TeacherItem, Input } from '../../components';
+import {
+  PageHeader,
+  Container,
+  TeacherItem,
+  Input,
+  Select,
+} from '../../components';
+import data from '../../config/data';
 import * as styles from './styles';
 
 export const TeacherList = () => {
@@ -8,26 +15,27 @@ export const TeacherList = () => {
     <Container css={styles.page}>
       <PageHeader title="Estes são os proffys disponíveis.">
         <form css={styles.searchForm}>
-          <Input
+          <Select
             name="subject"
             label="Matéria"
-            type="text"
             inline={true}
             labelStyle={styles.inputLabel}
+            marginTop={0}
+            options={data.subjects}
           />
 
-          <Input
+          <Select
             name="week-day"
             label="Dia da semana"
-            type="text"
             inline={true}
             labelStyle={styles.inputLabel}
+            options={data.weekDays}
           />
 
           <Input
             name="time"
             label="Hora"
-            type="text"
+            type="time"
             inline={true}
             labelStyle={styles.inputLabel}
           />
