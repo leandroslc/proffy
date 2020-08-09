@@ -20,12 +20,6 @@ export class CreateConnections1596914144963 implements MigrationInterface {
           isGenerated: true,
         },
         {
-          name: 'createdAt',
-          type: 'timestamp',
-          isNullable: false,
-          default: 'now()',
-        },
-        {
           name: 'userId',
           type: 'integer',
           isNullable: false,
