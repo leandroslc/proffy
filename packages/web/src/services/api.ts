@@ -1,22 +1,9 @@
 import axios from 'axios';
+import { CreateClass } from '../models';
 
 const api = axios.create({
   baseURL: 'http://localhost:3333',
 });
-
-interface CreateClass {
-  name: string;
-  avatar: string;
-  whatsapp: string;
-  bio: string;
-  subject: string;
-  cost: number;
-  schedules: Array<{
-    weekDay: string;
-    from: string;
-    to: string;
-  }>;
-}
 
 const service = {
   connections: {

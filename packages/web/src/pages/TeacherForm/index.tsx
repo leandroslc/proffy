@@ -9,12 +9,13 @@ import {
   TextArea,
   Select,
 } from '../../components';
+import { Schedule } from '../../models';
 import { icons } from '../../assets';
 import data from '../../config/data';
 import api from '../../services/api';
 import * as styles from './styles';
 
-interface Schedule {
+interface ScheduleItem extends Schedule {
   key: number;
   weekDay: string;
   from: string;
@@ -29,7 +30,7 @@ export const TeacherForm = () => {
   const [subject, setSubject] = useState('');
   const [cost, setCost] = useState('');
   const [schedules, setSchedules] = useState([
-    { key: 1, weekDay: '', from: '', to: '' } as Schedule,
+    { key: 1, weekDay: '', from: '', to: '' } as ScheduleItem,
   ]);
   const history = useHistory();
 
@@ -52,7 +53,12 @@ export const TeacherForm = () => {
   function addSchedule() {
     setSchedules([
       ...schedules,
-      { key: schedules.length + 1, weekDay: '', from: '', to: '' } as Schedule,
+      {
+        key: schedules.length + 1,
+        weekDay: '',
+        from: '',
+        to: '',
+      } as ScheduleItem,
     ]);
   }
 
