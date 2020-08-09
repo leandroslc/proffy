@@ -14,7 +14,7 @@ import data from '../../config/data';
 import { icons } from '../../assets';
 import * as styles from './styles';
 
-export const TeacherList = () => {
+export const ClassList = () => {
   const [subject, setSubject] = useState('');
   const [weekDay, setWeekDay] = useState('');
   const [time, setTime] = useState('');

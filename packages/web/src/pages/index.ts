@@ -1,4 +1,4 @@
 export * from './Landing';
-export * from './TeacherForm';
-export * from './TeacherList';
+export * from './ClassForm';
+export * from './ClassList';
 export * from './NotFound';

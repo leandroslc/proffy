@@ -22,7 +22,7 @@ interface ScheduleItem extends Schedule {
   to: string;
 }
 
-export const TeacherForm = () => {
+export const ClassForm = () => {
   const [name, setName] = useState('');
   const [avatar, setAvatar] = useState('');
   const [whatsapp, setWhatsapp] = useState('');
