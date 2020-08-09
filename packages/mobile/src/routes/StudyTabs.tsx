@@ -7,6 +7,8 @@ import Favorites from '../pages/Favorites';
 
 const { Navigator, Screen } = createBottomTabNavigator();
 
+const focusedIconColor = '#8257e5';
+
 const StudyTabs = () => {
   return (
     <Navigator
@@ -42,8 +44,12 @@ const StudyTabs = () => {
         component={ClassList}
         options={{
           tabBarLabel: 'Proffys',
-          tabBarIcon: ({ color, size }) => (
-            <Ionicons name="ios-easel" size={size} color={color} />
+          tabBarIcon: ({ color, size, focused }) => (
+            <Ionicons
+              name="ios-easel"
+              size={size}
+              color={focused ? focusedIconColor : color}
+            />
           ),
         }}
       />
@@ -53,8 +59,12 @@ const StudyTabs = () => {
         component={Favorites}
         options={{
           tabBarLabel: 'Favoritos',
-          tabBarIcon: ({ color, size }) => (
-            <Ionicons name="ios-heart" size={size} color={color} />
+          tabBarIcon: ({ color, size, focused }) => (
+            <Ionicons
+              name="ios-heart"
+              size={size}
+              color={focused ? focusedIconColor : color}
+            />
           ),
         }}
       />
