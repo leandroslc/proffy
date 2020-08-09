@@ -7,6 +7,7 @@ import study from './icons/study.svg';
 import successCheck from './icons/success-check-icon.svg';
 import warning from './icons/warning.svg';
 import whatsapp from './icons/whatsapp.svg';
+import search from './icons/search.svg';
 
 export const icons = {
   back,
@@ -18,4 +19,5 @@ export const icons = {
   successCheck,
   warning,
   whatsapp,
+  search,
 };

@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { CreateClass } from '../models';
+import { CreateClass, SearchClass } from '../models';
 
 const api = axios.create({
   baseURL: 'http://localhost:3333',
@@ -10,6 +10,8 @@ const service = {
     getTotal: () => api.get('connections'),
   },
   classes: {
+    search: (searchClass: SearchClass) =>
+      api.get('classes', { params: searchClass }),
     create: (createClass: CreateClass) => api.post('classes', createClass),
   },
 };
