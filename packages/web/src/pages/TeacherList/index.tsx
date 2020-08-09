@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui';
-import { PageHeader, Container, TeacherItem } from '../../components';
+import { PageHeader, Container, TeacherItem, Input } from '../../components';
 import * as styles from './styles';
 
 export const TeacherList = () => {
@@ -8,26 +8,26 @@ export const TeacherList = () => {
     <Container css={styles.page}>
       <PageHeader title="Estes são os proffys disponíveis.">
         <form css={styles.searchForm}>
-          <div css={styles.inputBlock}>
-            <label css={styles.inputBlockLabel} htmlFor="subject">
-              Matéria
-            </label>
-            <input css={styles.inputBlockInput} type="text" id="subject" />
-          </div>
+          <Input
+            name="subject"
+            label="Matéria"
+            type="text"
+            labelStyle={styles.inputLabel}
+          />
 
-          <div css={styles.inputBlock}>
-            <label css={styles.inputBlockLabel} htmlFor="week-day">
-              Dia da semana
-            </label>
-            <input css={styles.inputBlockInput} type="text" id="week-day" />
-          </div>
+          <Input
+            name="week-day"
+            label="Dia da semana"
+            type="text"
+            labelStyle={styles.inputLabel}
+          />
 
-          <div css={styles.inputBlock}>
-            <label css={styles.inputBlockLabel} htmlFor="time">
-              Hora
-            </label>
-            <input css={styles.inputBlockInput} type="text" id="time" />
-          </div>
+          <Input
+            name="time"
+            label="Hora"
+            type="text"
+            labelStyle={styles.inputLabel}
+          />
         </form>
       </PageHeader>
 
