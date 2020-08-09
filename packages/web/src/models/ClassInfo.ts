@@ -6,7 +6,9 @@ interface User {
 }
 
 export interface ClassInfo {
+  id: number;
   subject: string;
+  description: string;
   cost: number;
   user: User;
 }
