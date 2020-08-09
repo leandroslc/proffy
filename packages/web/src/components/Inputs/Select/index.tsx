@@ -34,7 +34,7 @@ export const Select = (props: SelectProps) => {
       marginTop={marginTop}
       lineBottomPosition={lineBottomPosition}
     >
-      <select css={styles.select} defaultValue="" id={name} {...otherProps}>
+      <select css={styles.select} value="" id={name} {...otherProps}>
         <option value="" disabled hidden>
           Selecione uma opção
         </option>
