@@ -1,11 +1,23 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Container } from '../../components';
 import { images, icons } from '../../assets';
+import api from '../../services/api';
 import * as styles from './styles';
 
 export const Landing = () => {
+  const [totalConnections, setTotalConnections] = useState(0);
+
+  useEffect(() => {
+    api.connections.getTotal().then((response) => {
+      const { total } = response.data;
+
+      setTotalConnections(total);
+    });
+  }, []);
+
   return (
     <div css={styles.page}>
       <Container css={styles.content}>
@@ -45,7 +57,7 @@ export const Landing = () => {
         </div>
 
         <span css={styles.totalConnections}>
-          Total de 200 conexões já realizadas
+          Total de {totalConnections} conexões já realizadas
           <img
             css={styles.totalConnectionsIcon}
             src={icons.purpleHeart}
