@@ -1,12 +1,22 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StatusBar } from 'expo-status-bar';
+import { AppLoading } from 'expo';
+import useFonts from './src/fonts';
+import AppStack from './src/routes/AppStack';
 
-export default function App() {
+const App = () => {
+  const [fontsLoaded] = useFonts();
+
+  if (!fontsLoaded) {
+    return <AppLoading />;
+  }
+
   return (
-    <View>
-      <Text>Hello</Text>
-      <StatusBar style="auto" />
-    </View>
+    <>
+      <AppStack />
+      <StatusBar style="light" />
+    </>
   );
-}
+};
+
+export default App;
