@@ -1,4 +1,4 @@
 export * from './Container';
 export * from './PageHeader';
-export * from './Input';
+export * from './Inputs';
 export * from './TeacherItem';
