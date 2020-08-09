@@ -8,6 +8,7 @@ const api = axios.create({
 const service = {
   connections: {
     getTotal: () => api.get('connections'),
+    create: (userId: number) => api.post('connections', { userId }),
   },
   classes: {
     search: (searchClass: SearchClass) =>

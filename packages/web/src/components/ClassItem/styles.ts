@@ -84,6 +84,7 @@ export const button = (theme: ThemeConfig) => css`
   height: 5.6rem;
   font: 700 1.4rem Archivo, sans-serif;
   color: ${theme.colors.buttonText};
+  text-decoration: none;
   cursor: pointer;
   background: ${theme.colors.secundary};
   border: 0;
