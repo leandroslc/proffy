@@ -74,7 +74,7 @@ export const buttons = css`
     justify-content: flex-start;
   `)}
 
-  & :first-child {
+  & :first-of-type {
     margin-right: 1.6rem;
   }
 `;
