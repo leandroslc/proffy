@@ -6,10 +6,6 @@ export const inputBlock = (theme: ThemeConfig) => css`
 
   & + & {
     margin-top: 1.4rem;
-
-    ${bq.greaterThan('sm')(css`
-      margin-top: 0;
-    `)}
   }
 
   &:focus-within::after {
@@ -21,6 +17,14 @@ export const inputBlock = (theme: ThemeConfig) => css`
     height: 2px;
     content: '';
     background: ${theme.colors.primaryLight};
+  }
+`;
+
+export const inlineInputBlock = css`
+  & + & {
+    ${bq.greaterThan('sm')(css`
+      margin-top: 0;
+    `)}
   }
 `;
 

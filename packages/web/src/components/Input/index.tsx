@@ -8,14 +8,20 @@ import * as styles from './styles';
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   name: string;
   label: string;
+  inline?: boolean;
   labelStyle?: (theme: ThemeConfig) => Interpolation;
 }
 
 export const Input = (props: InputProps) => {
-  const { name, label, labelStyle, ...otherProps } = props;
+  const { name, label, labelStyle, inline = false, ...otherProps } = props;
 
   return (
-    <div css={styles.inputBlock}>
+    <div
+      css={(theme) => [
+        styles.inputBlock(theme),
+        inline ? styles.inlineInputBlock : {},
+      ]}
+    >
       <label
         css={(theme) => [
           styles.inputBlockLabel(theme),

@@ -12,6 +12,7 @@ export const TeacherList = () => {
             name="subject"
             label="Matéria"
             type="text"
+            inline={true}
             labelStyle={styles.inputLabel}
           />
 
@@ -19,6 +20,7 @@ export const TeacherList = () => {
             name="week-day"
             label="Dia da semana"
             type="text"
+            inline={true}
             labelStyle={styles.inputLabel}
           />
 
@@ -26,6 +28,7 @@ export const TeacherList = () => {
             name="time"
             label="Hora"
             type="text"
+            inline={true}
             labelStyle={styles.inputLabel}
           />
         </form>
