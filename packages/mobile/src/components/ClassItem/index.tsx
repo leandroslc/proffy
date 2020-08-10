@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { RectButton } from 'react-native-gesture-handler';
 import { Image, Linking, Text, View } from 'react-native';
 import { ClassInfo } from '../../models';
+import api from '../../services/api';
 import favoritesService from '../../services/favorites';
 import styles from './styles';
 
@@ -24,6 +25,8 @@ export const ClassItem = (props: ClassItemProps) => {
   const [isFavorited, setIsFavorited] = useState(favorited);
 
   function handleLinkToWhatsapp() {
+    api.connections.create(classInfo.user.id);
+
     const phone = getNormalizedPhoneNumber(classInfo.user.whatsapp);
 
     Linking.openURL(`whatsapp://send?phone=${phone}`);
