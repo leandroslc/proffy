@@ -5,14 +5,26 @@ import { Feather } from '@expo/vector-icons';
 import { ClassItem, PageHeader } from '../../components';
 import { ClassInfo } from '../../models';
 import api from '../../services/api';
+import favoritesService from '../../services/favorites';
 import styles from './styles';
 
 const ClassList = () => {
   const [isFiltersVisible, setIsFiltersVisible] = useState(true);
   const [classes, setClasses] = useState([] as ClassInfo[]);
+  const [favorites, setFavorites] = useState([] as number[]);
   const [subject, setSubject] = useState('');
   const [weekDay, setWeekDay] = useState('');
   const [time, setTime] = useState('');
+
+  async function loadFavorites() {
+    const favoriteClasses = await favoritesService.getAll();
+
+    const favoriteClassesIds = favoriteClasses.map((classInfo) => {
+      return classInfo.id;
+    });
+
+    setFavorites(favoriteClassesIds);
+  }
 
   function handleToggleFiltersVisibility() {
     setIsFiltersVisible(!isFiltersVisible);
@@ -24,6 +36,8 @@ const ClassList = () => {
       weekDay,
       time,
     });
+
+    await loadFavorites();
 
     setIsFiltersVisible(false);
     setClasses(response.data);
@@ -92,7 +106,11 @@ const ClassList = () => {
         }}
       >
         {classes.map((classInfo) => (
-          <ClassItem key={classInfo.id} classInfo={classInfo} />
+          <ClassItem
+            key={classInfo.id}
+            classInfo={classInfo}
+            favorited={favorites.includes(classInfo.id)}
+          />
         ))}
       </ScrollView>
     </View>
