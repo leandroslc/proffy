@@ -7,6 +7,7 @@ interface User {
 }
 
 export interface ClassInfo {
+  id: number;
   subject: string;
   cost: number;
   user: User;
