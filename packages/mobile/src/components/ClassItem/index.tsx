@@ -1,6 +1,6 @@
 import React from 'react';
 import { RectButton } from 'react-native-gesture-handler';
-import { Image, Text, View } from 'react-native';
+import { Image, Linking, Text, View } from 'react-native';
 import { ClassInfo } from '../../models';
 import styles from './styles';
 
@@ -13,11 +13,21 @@ interface ClassItemProps {
   favorited?: boolean;
 }
 
+function getNormalizedPhoneNumber(phone: string) {
+  return phone.replace(/[^\d]/g, '');
+}
+
 export const ClassItem = (props: ClassItemProps) => {
   const {
     classInfo: { subject, cost, user },
     favorited = false,
   } = props;
+
+  function handleLinkToWhatsapp() {
+    const phone = getNormalizedPhoneNumber(user.whatsapp);
+
+    Linking.openURL(`whatsapp://send?phone=${phone}`);
+  }
 
   return (
     <View style={styles.container}>
@@ -49,7 +59,10 @@ export const ClassItem = (props: ClassItemProps) => {
             )}
           </RectButton>
 
-          <RectButton style={styles.contactButton}>
+          <RectButton
+            onPress={handleLinkToWhatsapp}
+            style={styles.contactButton}
+          >
             <Image source={whatsappIcon} />
             <Text style={styles.contactButtonText}>Entrar em contato</Text>
           </RectButton>
